@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./client"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DB_URL")
+}
+
+model pendaftaran {
+  id          Int      @id @default(autoincrement())
+  name        String?  @db.VarChar(255)
+  email       String?  @db.VarChar(255)
+  phone       String?  @db.VarChar(20)
+  semester    Int?
+  ipk         Decimal? @db.Decimal(4, 2)
+  scholarship String?  @db.VarChar(255)
+  document    String?  @db.VarChar(255)
+}
